@@ -4,16 +4,16 @@ import entities.Aluno;
 
 public class DAOAluno {
 
-    public static void verificarAluno(Aluno aluno){
+    public static String  verificarAluno(String nome){
         boolean existe = false;
         try{
             if(existe){
-                CadAluno.mostraTelaCadastro("Aluno já cadastrado anteriormente.");
+                return "Aluno já cadastrado anteriormente.";
             }else{
-                CadAluno.mostraTelaCadastro("Aluno cadastrado.");
+                return "Aluno cadastrado.";
             }
         }catch (Exception e){
-            CadAluno.mostraTelaCadastro("ERRO: "+e);
+            return "ERRO: "+e;
         }
     }
 }
