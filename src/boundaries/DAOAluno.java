@@ -4,16 +4,14 @@ import entities.Aluno;
 
 public class DAOAluno {
 
-    public static String  verificarAluno(String nome){
+    public static boolean existeCPF(String CPF){
+        //TODO implementar DAO
         boolean existe = false;
-        try{
-            if(existe){
-                return "Aluno já cadastrado anteriormente.";
-            }else{
-                return "Aluno cadastrado.";
-            }
-        }catch (Exception e){
-            return "ERRO: "+e;
-        }
+
+        return existe;
+    }
+
+    public static void cadastrarAluno(Aluno aluno){
+
     }
 }
