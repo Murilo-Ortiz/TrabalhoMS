@@ -6,6 +6,9 @@ public class Aluno {
     private int idade;
 
     //Construtor
+    public Aluno(){
+
+    }
 
     public Aluno(String nome, String CPF, int idade) {
         this.nome = nome;

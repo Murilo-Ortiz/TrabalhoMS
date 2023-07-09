@@ -21,39 +21,40 @@ public class CtrlInstrutor {
     }
 
   public static void removerInstrutor(Instrutor instrutor){
-    try {
-            if (DAOInstrutor.existeNome(instrutor.getNome())) {
-                DAOInstrutor.removeInstrutor(instrutor.getNome());
-                CadInstrutor.mostraTela("nome:  " + nome + " removido.");
-            } else {
+      try {
+          if (DAOInstrutor.existeNome(instrutor.getNome())) {
+                DAOInstrutor.removeInstrutor(instrutor);
+                CadInstrutor.mostraTela("nome:  " + instrutor.getNome() + " removido.");
+          } else {
                 CadInstrutor.mostraTela(instrutor + " não cadastrado.");
-            }
-        }catch (Exception erro){
+          }
+      }catch (Exception erro){
             CadInstrutor.mostraTela("ERRO: " + erro);
-        }
+      }
   }
 
   public static void ListarInstrutor(){
-        ArrayList<Instrutor> lista = new ArrayList<Instrutor>;
-        try {
-            DAOInstrutor.getList(lista);
+      ArrayList<Instrutor> lista;
+      try {
+            lista = DAOInstrutor.getList();
             CadInstrutor.mostraDadosLista(lista);
-        }catch (Exception erro){
+      }catch (Exception erro){
             CadInstrutor.mostraTela("ERRO: " + erro);
-        }
+      }
   }
 
   public static void AtualizarInstrutor(String nome){
-    Instrutor instrutor1, instrutor2;
+      Instrutor instrutor1, instrutor2;
+
       try {
             if (DAOInstrutor.existeNome(nome)) {
-                instrutor = DAOInstrutor.getInstrutor(nome);
+                instrutor1 = DAOInstrutor.getInstrutor(nome);
                 CadInstrutor.mostraDados(instrutor1);
                 instrutor2 = CadInstrutor.atualizaDados();
                 DAOInstrutor.atualizaDados(instrutor1, instrutor2);
                 CadInstrutor.mostraTela("instrutor atualizado");
             } else {
-                CadInstrutor.mostraTela(instrutor + " não cadastrado.");
+                CadInstrutor.mostraTela(nome + " não cadastrado.");
             }
         }catch (Exception erro){
             CadInstrutor.mostraTela("ERRO: " + erro);
