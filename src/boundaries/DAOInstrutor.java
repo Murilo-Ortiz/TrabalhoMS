@@ -13,8 +13,8 @@ public class DAOInstrutor {
 
   public static boolean existeNome(String nome){ return Sgbd.buscarInstrutor(nome) != null; }
 
-  public static void removeInstrutor(Instrutor instrutor){
-    Sgbd.remover(instrutor);
+  public static void removeInstrutor(String nome){
+    Sgbd.removerInstrutor(nome);
   }
 
   public static ArrayList<Instrutor> getList(){ return Sgbd.getInstrutoresList(); }
