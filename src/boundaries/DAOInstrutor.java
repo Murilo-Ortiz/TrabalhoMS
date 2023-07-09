@@ -15,7 +15,7 @@ public class DAOInstrutor {
     }
 
     public static void removeInstrutor(Instrutor instrutor){
-        Sgbd.remover(instrutor);
+        Sgbd.removerInstrutor(instrutor.getNome());
     }
 
     public static ArrayList<Instrutor> getList(){
