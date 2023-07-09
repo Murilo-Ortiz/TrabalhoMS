@@ -71,7 +71,7 @@ public class Sgbd {
     //Métodos para alterar
     public static void alterar(Instrutor velho, Instrutor novo){
         for (Instrutor instrutor : instrutores){
-            if(instrutor.equals(velho)){
+            if(instrutor.getCPF().equals(velho.getCPF())){
                 instrutor.setNome(novo.getNome());
                 instrutor.setCPF(novo.getCPF());
                 instrutor.setHorario(novo.getHorario());
@@ -82,7 +82,7 @@ public class Sgbd {
 
     public static void alterar(Aluno velho, Aluno novo){
         for (Aluno aluno : alunos){
-            if(aluno.equals(velho)){
+            if(aluno.getCPF().equals(velho.getCPF())){
                 aluno.setNome(novo.getNome());
                 aluno.setCPF(novo.getCPF());
                 aluno.setIdade(novo.getIdade());

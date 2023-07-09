@@ -26,7 +26,25 @@ public class CadAluno {
         System.out.println("Remover ");
         System.out.println("CPF: ");
         String CPF = in.nextLine();
-        CtrlInstrutor.removerInstrutor(CPF);
+        CtrlAluno.removerAluno(CPF);
+    }
+
+    public static void listarAlunos(){
+        CtrlAluno.listarAlunos();
+    }
+
+    public static void buscarAluno(){
+        Scanner in = new Scanner(System.in);
+        Aluno aluno;
+
+        System.out.println("Buscar ");
+        System.out.println("CPF: ");
+        String CPF = in.nextLine();
+        if((aluno = CtrlAluno.buscarAluno(CPF)) != null) {
+            System.out.println(aluno);
+        }else{
+            System.out.println(CPF + " não cadastrado.");
+        }
     }
 
     public static void mostraTela(String mensagem){

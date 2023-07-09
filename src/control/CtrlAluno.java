@@ -36,12 +36,16 @@ public class CtrlAluno {
         }
     }
 
-    public static void ListarAluno(){
+    public static void listarAlunos(){
         try {
             CadAluno.mostraDadosLista(DAOAluno.getList());
         }catch (Exception erro){
             CadAluno.mostraTela("ERRO: " + erro);
         }
+    }
+
+    public static Aluno buscarAluno(String CPF){
+        return DAOAluno.getAluno(CPF);
     }
 
     public static void AtualizarAluno(String CPF){

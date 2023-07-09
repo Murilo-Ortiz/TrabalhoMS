@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Objects;
+
 public class Aluno {
     private String nome;
     private String CPF;

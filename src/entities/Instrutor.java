@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Objects;
+
 public class Instrutor {
     private String nome;
     private String CPF;

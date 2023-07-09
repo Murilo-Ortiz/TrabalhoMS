@@ -30,6 +30,24 @@ public class CadInstrutor {
         CtrlInstrutor.removerInstrutor(CPF);
     }
 
+    public static void listarInstrutores(){
+        CtrlInstrutor.listarInstrutores();
+    }
+
+    public static void buscarInstrutor(){
+        Scanner in = new Scanner(System.in);
+        Instrutor instrutor;
+
+        System.out.println("Buscar ");
+        System.out.println("CPF: ");
+        String CPF = in.nextLine();
+        if((instrutor = CtrlInstrutor.buscarInstrutor(CPF)) != null) {
+            System.out.println(instrutor);
+        }else{
+            System.out.println(CPF + " não cadastrado.");
+        }
+    }
+
     public static void mostraTela(String mensagem){
         System.out.println(mensagem);
     }

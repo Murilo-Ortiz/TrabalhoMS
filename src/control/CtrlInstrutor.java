@@ -1,7 +1,9 @@
 package control;
 
 import boundaries.CadInstrutor;
+import boundaries.DAOAluno;
 import boundaries.DAOInstrutor;
+import entities.Aluno;
 import entities.Instrutor;
 
 public class CtrlInstrutor {
@@ -33,12 +35,16 @@ public class CtrlInstrutor {
         }
     }
 
-    public static void ListarInstrutor(){
+    public static void listarInstrutores(){
         try {
             CadInstrutor.mostraDadosLista(DAOInstrutor.getList());
         }catch (Exception erro){
             CadInstrutor.mostraTela("ERRO: " + erro);
         }
+    }
+
+    public static Instrutor buscarInstrutor(String CPF){
+        return DAOInstrutor.getInstrutor(CPF);
     }
 
     public static void AtualizarInstrutor(String CPF){
