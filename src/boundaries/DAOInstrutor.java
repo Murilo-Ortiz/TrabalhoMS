@@ -6,22 +6,27 @@ import entities.Sgbd;
 import java.util.ArrayList;
 
 public class DAOInstrutor {
+    public static void cadastrarInstrutor(Instrutor instrutor){
+        Sgbd.gravar(instrutor);
+    }
 
-  public static void cadastrarInstrutor(Instrutor instrutor){
-    Sgbd.gravar(instrutor);
-  }
+    public static boolean existeInstrutor(String CPF){
+        return Sgbd.buscarInstrutor(CPF) != null;
+    }
 
-  public static boolean existeNome(String nome){ return Sgbd.buscarInstrutor(nome) != null; }
+    public static void removeInstrutor(Instrutor instrutor){
+        Sgbd.remover(instrutor);
+    }
 
-  public static void removeInstrutor(String nome){
-    Sgbd.removerInstrutor(nome);
-  }
+    public static ArrayList<Instrutor> getList(){
+        return Sgbd.getInstrutores();
+    }
 
-  public static ArrayList<Instrutor> getList(){ return Sgbd.getInstrutoresList(); }
+    public static Instrutor getInstrutor(String CPF){
+        return Sgbd.buscarInstrutor(CPF);
+    }
 
-  public static Instrutor getInstrutor(String nome){ return Sgbd.buscarInstrutor(nome); }
-
-  public static void atualizaDados(Instrutor instrutor1, Instrutor instrutor2) {
-    Sgbd.alterarInstrutor(instrutor1, instrutor2);
-  }
+    public static void atualizaDados(Instrutor velho, Instrutor novo) {
+        Sgbd.alterar(velho, novo);
+    }
 }

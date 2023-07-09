@@ -1,15 +1,14 @@
 package control;
 
-import java.util.ArrayList;
 import boundaries.CadInstrutor;
 import boundaries.DAOInstrutor;
 import entities.Instrutor;
 
 public class CtrlInstrutor {
-  public static void cadastrarInstrutor(String nome, String CPF, String horario, int idade){
+    public static void cadastrarInstrutor(String nome, String CPF, String horario, int idade){
         try {
-            if (DAOInstrutor.existeNome(nome)) {
-                CadInstrutor.mostraTela("nome:  " + nome + "já cadastrado.");
+            if (DAOInstrutor.existeInstrutor(CPF)) {
+                CadInstrutor.mostraTela("CPF:  " + CPF + "já cadastrado.");
             } else {
                 Instrutor instrutor = new Instrutor(nome, CPF, horario, idade);
                 DAOInstrutor.cadastrarInstrutor(instrutor);
@@ -20,44 +19,43 @@ public class CtrlInstrutor {
         }
     }
 
-  public static void removerInstrutor(String nome){
-      try {
-          if (DAOInstrutor.existeNome(nome)) {
-                DAOInstrutor.removeInstrutor(nome);
+    public static void removerInstrutor(String CPF){
+        Instrutor instrutor;
+        try {
+            if ((instrutor = DAOInstrutor.getInstrutor(CPF)) != null) {
+                DAOInstrutor.removeInstrutor(instrutor);
                 CadInstrutor.mostraTela("nome:  " + instrutor.getNome() + " removido.");
-          } else {
-                CadInstrutor.mostraTela(instrutor + " não cadastrado.");
-          }
-      }catch (Exception erro){
+            } else {
+                CadInstrutor.mostraTela(CPF + " não cadastrado.");
+            }
+        } catch (Exception erro){
             CadInstrutor.mostraTela("ERRO: " + erro);
-      }
-  }
+        }
+    }
 
-  public static void ListarInstrutor(){
-      ArrayList<Instrutor> lista;
-      try {
-            lista = DAOInstrutor.getList();
-            CadInstrutor.mostraDadosLista(lista);
-      }catch (Exception erro){
+    public static void ListarInstrutor(){
+        try {
+            CadInstrutor.mostraDadosLista(DAOInstrutor.getList());
+        }catch (Exception erro){
             CadInstrutor.mostraTela("ERRO: " + erro);
-      }
-  }
+        }
+    }
 
-  public static void AtualizarInstrutor(String nome){
-      Instrutor instrutor1, instrutor2;
+    public static void AtualizarInstrutor(String CPF){
+        Instrutor velho, novo;
 
-      try {
-            if (DAOInstrutor.existeNome(nome)) {
-                instrutor1 = DAOInstrutor.getInstrutor(nome);
-                CadInstrutor.mostraDados(instrutor1);
-                instrutor2 = CadInstrutor.atualizaDados();
-                DAOInstrutor.atualizaDados(instrutor1, instrutor2);
+        try {
+            if (DAOInstrutor.existeInstrutor(CPF)) {
+                velho = DAOInstrutor.getInstrutor(CPF);
+                CadInstrutor.mostraDados(velho);
+                novo = CadInstrutor.atualizaDados();
+                DAOInstrutor.atualizaDados(velho, novo);
                 CadInstrutor.mostraTela("instrutor atualizado");
             } else {
-                CadInstrutor.mostraTela(nome + " não cadastrado.");
+                CadInstrutor.mostraTela(CPF + " não cadastrado.");
             }
         }catch (Exception erro){
             CadInstrutor.mostraTela("ERRO: " + erro);
         }
-  }
+    }
 }

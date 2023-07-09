@@ -6,8 +6,6 @@ public class Instrutor {
     private String horario;
     private int idade;
 
-    //Construtor
-
     public Instrutor(String nome, String CPF, String horario, int idade) {
         this.nome = nome;
         this.CPF = CPF;
@@ -15,47 +13,45 @@ public class Instrutor {
         this.idade = idade;
     }
 
-    //Setters
+    public Instrutor(){
 
-    public void setNome(String nome) {
-        this.nome = nome;
     }
-
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
-    }
-
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    //Getters
 
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCPF() {
         return CPF;
     }
 
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
     public String getHorario() {
         return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 
     public int getIdade() {
         return idade;
     }
 
-    //toString
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
 
     @Override
     public String toString() {
-        return "Isntrutor{" +
+        return "Instrutor{" +
                 "nome='" + nome + '\'' +
                 ", CPF='" + CPF + '\'' +
                 ", horario='" + horario + '\'' +
