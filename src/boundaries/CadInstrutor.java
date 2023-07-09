@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class CadInstrutor {
     public static void cadastrarInstrutor(){
+        System.out.println("Cadastrar ");
         Scanner in = new Scanner(System.in);
         System.out.println("nome:");
         String nome = in.nextLine();
@@ -19,6 +20,14 @@ public class CadInstrutor {
         int idade = in.nextInt();
 
         CtrlInstrutor.cadastrarInstrutor(nome, CPF, horario, idade);
+    }
+
+    public static void removerInstrutor(){
+        System.out.println("Remover ");
+        Scanner in = new Scanner(System.in);
+        System.out.println("CPF: ");
+        String CPF = in.nextLine();
+        CtrlInstrutor.removerInstrutor(nome);
     }
 
     public static void mostraTela(String mensagem){
