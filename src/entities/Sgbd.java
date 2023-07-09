@@ -31,8 +31,12 @@ public class Sgbd{
     public static void remover(Aluno aluno){
         alunos.remove(aluno);
     }
-    public static void remover(Instrutor instrutor){
-        instrutores.remove(instrutor);
+    public static void removerInstrutor(String nome){
+        Instrutor instr;
+        for(int i=0; i<instrutores.size();i++){
+            instr = instrutores.get(i);
+            if(instr.getCPF.equals(nome)){
+                instrutores.remove(i);
     }
     public static void remover(ExameFisico exame){
         exames.remove(exame);
