@@ -20,10 +20,10 @@ public class CtrlInstrutor {
         }
     }
 
-  public static void removerInstrutor(Instrutor instrutor){
+  public static void removerInstrutor(String nome){
       try {
-          if (DAOInstrutor.existeNome(instrutor.getNome())) {
-                DAOInstrutor.removeInstrutor(instrutor);
+          if (DAOInstrutor.existeNome(nome)) {
+                DAOInstrutor.removeInstrutor(nome);
                 CadInstrutor.mostraTela("nome:  " + instrutor.getNome() + " removido.");
           } else {
                 CadInstrutor.mostraTela(instrutor + " não cadastrado.");
