@@ -34,19 +34,41 @@ public class Sgbd {
     }
 
     //Métodos para gravar objetos
-    public static void gravar(Aluno aluno){
-        alunos.add(aluno);
-    }
+    public static void gravar(Aluno aluno){ alunos.add(aluno); }
     public static void gravar(Instrutor instrutor){
         instrutores.add(instrutor);
     }
+    public static void gravar(ExameFisico exame){ exames.add(exame); }
 
     //Métodos para remover objetos
-    public static void remover(Aluno aluno){
-        alunos.remove(aluno);
+    public static void removerAluno(String CPF) {
+        Aluno alun;
+        for (int i = 0; i < alunos.size(); i++) {
+            alun = alunos.get(i);
+            if (alun.getCPF().equals(CPF)) {
+                alunos.remove(i);
+            }
+        }
     }
-    public static void remover(Instrutor instrutor){
-        instrutores.remove(instrutor);
+
+    public static void removerInstrutor(String nome) {
+        Instrutor instr;
+        for (int i = 0; i < instrutores.size(); i++) {
+            instr = instrutores.get(i);
+            if (instr.getNome().equals(nome)) {
+                instrutores.remove(i);
+            }
+        }
+    }
+
+    public static void removerExameFisico(String CPF, String data){
+        ExameFisico exame;
+        for(int i=0; i<exames.size();i++){
+            exame = exames.get(i);
+            if(exame.getData().equals(data) && exame.getAluno().getCPF().equals(CPF)){
+                exames.remove(i);
+            }
+        }
     }
 
     //Métodos para buscar objetos
@@ -63,6 +85,15 @@ public class Sgbd {
         for(Instrutor instrutor : instrutores){
             if(instrutor.getCPF().equals(CPF)){
                 return instrutor;
+            }
+        }
+        return null;
+    }
+
+    public static ExameFisico buscarExameFisico(String CPF, String data){
+        for(ExameFisico exame : exames){
+            if(exame.getAluno().getCPF().equals(CPF) && exame.getData().equals(data)){
+                return exame;
             }
         }
         return null;
@@ -86,6 +117,19 @@ public class Sgbd {
                 aluno.setNome(novo.getNome());
                 aluno.setCPF(novo.getCPF());
                 aluno.setIdade(novo.getIdade());
+            }
+        }
+    }
+
+    public static void alterar(ExameFisico velho, ExameFisico novo){
+        for (ExameFisico exame : exames) {
+            if (exame.getData().equals(velho.getData()) && exame.getAluno().getCPF().equals(velho.getAluno().getCPF())) {
+                exame.setAltura(novo.getAltura());
+                exame.setData(novo.getData());
+                exame.setMassaGorda(novo.getMassaGorda());
+                exame.setMassaMagra(novo.getMassaMagra());
+                exame.setIMC(novo.getIMC());
+                exame.setPeso(novo.getPeso());
             }
         }
     }
