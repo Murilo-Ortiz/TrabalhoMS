@@ -5,48 +5,39 @@ public class Aluno {
     private String CPF;
     private int idade;
 
-    //Construtor
-    public Aluno(){
-
-    }
-
     public Aluno(String nome, String CPF, int idade) {
         this.nome = nome;
         this.CPF = CPF;
         this.idade = idade;
     }
 
+    public Aluno(){
 
-    //Setters
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
-
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    //Getters
 
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCPF() {
         return CPF;
     }
 
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
     public int getIdade() {
         return idade;
     }
 
-    //toString
-
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
 
     @Override
     public String toString() {
