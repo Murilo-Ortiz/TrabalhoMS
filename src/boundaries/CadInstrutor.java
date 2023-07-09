@@ -66,5 +66,8 @@ public class CadInstrutor {
         String nome = in.nextLine();
         CtrlInstrutor.AtualizarInstrutor(nome);
     }
-  
+    
+    public static void ListaInstrutor(){
+        CtrlInstrutor.ListarInstrutor();
+    }
 }

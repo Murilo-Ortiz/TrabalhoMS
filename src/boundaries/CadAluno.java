@@ -62,5 +62,8 @@ public class CadAluno {
         String CPF = in.nextLine();
         CtrlAluno.AtualizarAluno(CPF);
     }
-  
+    
+    public static void ListaAluno(){
+        CtrlAluno.ListarAluno();
+    }
 }
