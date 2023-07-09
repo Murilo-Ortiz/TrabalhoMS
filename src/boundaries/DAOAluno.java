@@ -15,7 +15,7 @@ public class DAOAluno {
     }
 
     public static void removeAluno(Aluno aluno){
-        Sgbd.remover(aluno);
+        Sgbd.removerAluno(aluno.getCPF());
     }
 
     public static ArrayList<Aluno> getList(){
