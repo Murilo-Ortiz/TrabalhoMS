@@ -39,6 +39,8 @@ public class Sgbd {
         instrutores.add(instrutor);
     }
     public static void gravar(ExameFisico exame){ exames.add(exame); }
+    public static void gravar(Exercicio exercicio){ exercicios.add(exercicio); }
+    public static void gravar(Treino treino){ treinos.add(treino); }
 
     //Métodos para remover objetos
     public static void removerAluno(String CPF) {
@@ -71,6 +73,26 @@ public class Sgbd {
         }
     }
 
+    public static void removerExercicio(String nome) {
+        Exercicio exe;
+        for (int i = 0; i < exercicios.size(); i++) {
+            exe = exercicios.get(i);
+            if (exe.getNome().equals(nome)) {
+                exercicios.remove(i);
+            }
+        }
+    }
+
+    public static void removerTreino(String CPF, int id){
+        Treino t;
+        for(int i=0; i<treinos.size();i++){
+            t = treinos.get(i);
+            if(t.getId()== id && t.getAluno().getCPF().equals(CPF)){
+                treinos.remove(i);
+            }
+        }
+    }
+
     //Métodos para buscar objetos
     public static Aluno buscarAluno(String CPF){
         for(Aluno aluno : alunos){
@@ -94,6 +116,24 @@ public class Sgbd {
         for(ExameFisico exame : exames){
             if(exame.getAluno().getCPF().equals(CPF) && exame.getData().equals(data)){
                 return exame;
+            }
+        }
+        return null;
+    }
+
+    public static Exercicio buscarExercicio(String nome){
+        for (Exercicio exe : exercicios) {
+            if (exe.getNome().equals(nome)) {
+                return exe;
+            }
+        }
+        return null;
+    }
+
+    public static Treino buscarTreino(String CPF, int id){
+        for(Treino t : treinos){
+            if (t.getId()== id && t.getAluno().getCPF().equals(CPF)){
+                return t;
             }
         }
         return null;
@@ -132,5 +172,28 @@ public class Sgbd {
                 exame.setPeso(novo.getPeso());
             }
         }
+    }
+
+    public static void alterar(Exercicio exe1, Exercicio exe2){
+        for (Exercicio exe : exercicios) {
+            if (exe.getNome().equals(exe1.getNome())) {
+                exe.setNome(exe2.getNome());
+                exe.setMaquina(exe2.getMaquina());
+            }
+        }
+    }
+
+    public static void alterar(Treino t1, Treino t2){
+        for (Treino t: treinos){
+            if(t.getId()== t1.getId() && t.getAluno().getCPF().equals(t1.getAluno().getCPF())){
+                t.setExes(t2.getExercicioList());
+                t.setPesos(t2.getPesos());
+            }
+        }
+    }
+
+    public static int getNewId(String CPF){
+        int sup = treinos.get(treinos.size()).getId();
+        return sup+=1;
     }
 }
