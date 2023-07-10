@@ -57,7 +57,7 @@ public class CtrlAluno {
                 CadAluno.mostraDados(velho);
                 novo = CadAluno.atualizaDados();
                 DAOAluno.atualizaDados(velho, novo);
-                CadAluno.mostraTela("instrutor atualizado");
+                CadAluno.mostraTela("aluno atualizado");
             } else {
                 CadAluno.mostraTela(CPF + " não cadastrado.");
             }
